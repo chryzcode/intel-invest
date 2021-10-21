@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .forms import SignupForm
 
 # Create your views here.
 def loginPage(request):
@@ -38,7 +39,7 @@ def registerPage(request):
         else:
             messages.error(request, 'An error occured during registration')
 
-    return render(request, 'login_register.html', {'form':form})
+    return render(request, 'registration/register.html', {'form':form})
 
 def home(request):
     return render(request, 'home.html')
