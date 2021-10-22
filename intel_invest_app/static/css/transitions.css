@@ -1,0 +1,29 @@
+
+@keyframes intro{
+    0%{
+        top: -1000px;
+    }
+
+    100%{
+        top: 0;
+    }
+}
+
+@keyframes moving-bar{
+    0%{
+        left: 0;
+        top: 0;
+    }
+
+    50%{
+        left: 100px;
+        top: 0;
+        border-top: 4px solid white;
+    }
+
+    100%{
+        left: 200px;
+        top: 0;
+        border-top: 4px solid orange;
+    }
+}

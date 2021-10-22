@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  height: 57px;
+  width: 100%;
+  border-bottom: 3px solid #333;
+  z-index: 10;
+  background-color: orange;
+}
+
+nav:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.checkbtn {
+  font-size: 25px;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  display: none;
+  cursor: pointer;
+}
+
+#check {
+  display: none;
+}
+
+#bars {
+  line-height: 80px;
+  margin-right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#cross {
+  display: none;
+  line-height: 80px;
+  margin-right: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#check:checked + label i#bars {
+  display: none;
+}
+
+#check:checked + label i#cross {
+  display: block;
+}
+
+nav ul {
+  float: right;
+  padding-right: 30px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 10px;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+li a:hover {
+  color: #333;
+  font-size: 18.5px;
+  border-bottom: 3px solid white;
+}
+
+li a:active {
+  font-size: 18px;
+}
+
+.messages {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  width: 40%;
+  height: 65vh;
+  padding: 19px;
+  border: 2px solid #ffa500;
+}
+
+.register-container {
+  border: 2px solid #ffa500;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  width: 40%;
+  height: 95vh;
+  padding: 19px;
+  margin-bottom: 50px;
+}
+
+.intro {
+  position: relative;
+  animation: intro;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  margin-top: 50px;
+  padding-right: 50%;
+}
+
+.moving-bar {
+  border-top: 4px solid orange;
+  width: 100px;
+  position: relative;
+  animation-name: moving-bar;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}

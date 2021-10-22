@@ -1,23 +1,19 @@
 {% extends 'base.html' %} {% block content %}
-{% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
 <div class="login-container">
-  <h4 style="text-align: center; margin-top: 10px;">Sign In</h4>
+  {% if messages %} {% for message in messages %}
+  <p class="messages">{{message}}</p>
+  {% endfor %} {% endif %}
+  <h3 style="text-align: center; margin-top: 10px; color: orange">Sign In</h3>
   <form action="" method="post">
     {% csrf_token %}
     <div class="container">
       <div>
-        <label style="font-size: 20px; margin:7px 0;">Email</label>
+        <label style="font-size: 16px; margin: 7px 0">Email</label>
         <input class="form-control" id="email" name="email" type="text" placeholder="e.g. johndoe@gmail.com" />
       </div>
 
       <div>
-        <label style="font-size: 20px; margin:7px 0;" for="password">Password</label>
+        <label style="font-size: 16px; margin: 7px 0" for="password">Password</label>
         <input
           class="form-control"
           id="password"
@@ -26,24 +22,17 @@
           placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
         />
       </div>
-
-      <button class="btn btn-secondary sm" style="float: right; margin-top: 40px;" type="submit">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32">
-          <title>lock</title>
-          <path
-            d="M27 12h-1v-2c0-5.514-4.486-10-10-10s-10 4.486-10 10v2h-1c-0.553 0-1 0.447-1 1v18c0 0.553 0.447 1 1 1h22c0.553 0 1-0.447 1-1v-18c0-0.553-0.447-1-1-1zM8 10c0-4.411 3.589-8 8-8s8 3.589 8 8v2h-16v-2zM26 30h-20v-16h20v16z"
-          ></path>
-          <path
-            d="M15 21.694v4.306h2v-4.306c0.587-0.348 1-0.961 1-1.694 0-1.105-0.895-2-2-2s-2 0.895-2 2c0 0.732 0.413 1.345 1 1.694z"
-          ></path>
-        </svg>
-
-        Login
-      </button>
-      <p>Haven't signed up yet? <a href="{% url 'register' %}">Sign Up</a></p>
-      <p><a href="#">Forgot Password</a></p>
-             
+      <div style="text-align: center; margin: 15px 0">
+        <span style="display: block"
+          >Haven't signed up yet? <a style="color: orange" href="{% url 'register' %}">Sign Up</a></span
+        >
+        <span style="display: block"><a style="color: orange" href="#">Forgot Password</a></span>
+      </div>
     </div>
+    <button class="btn btn-secondary btn-sm" style="float: right; background-color: orange; border: 0" type="submit">
+      <title>lock</title>
+      Login
+    </button>
   </form>
 </div>
 
