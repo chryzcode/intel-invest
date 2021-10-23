@@ -1,7 +1,7 @@
 
 @keyframes intro{
     0%{
-        top: -1000px;
+        top: -500px;
     }
 
     100%{
@@ -25,5 +25,35 @@
         left: 200px;
         top: 0;
         border-top: 4px solid orange;
+    }
+}
+
+@keyframes about{
+    0%{
+        left: -1000px;
+    }
+
+    100%{
+        left: 0;
+    }
+}
+
+@keyframes features{
+    0%{
+        opacity: 0;  ;
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes cards{
+    0%{
+        opacity: 0;  ;
+    }
+
+    100%{
+        opacity: 100%;
     }
 }

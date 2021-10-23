@@ -14,10 +14,11 @@
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
-    />
+    />            
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Eczar&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet" />
   </head>
   <body>
     <nav>
@@ -26,7 +27,7 @@
         <i id="cross" class="fa fa-times"></i>
         <i id="bars" class="fas fa-bars"></i>
       </label>
-      <a href="#">Intel Invest</a>
+      <a style="font-family: 'Berkshire Swash', cursive; font-size: 40px; text-decoration: none; color: white; margin-left: 15px;" href="#">Intel Invest</a>
       <ul>
         <li><a href="{% url 'login' %}">Sign In</a></li>
         <li><a href="{% url 'register' %}">Sign Up</a></li>
@@ -35,7 +36,10 @@
         {% endif %}
       </ul>
     </nav>
+    {% block content %}
+    <div class="container">
 
-    <div class="container">{% block content%} {% endblock %}</div>
+    </div> 
+    {% endblock %}
   </body>
 </html>

@@ -8,12 +8,12 @@
     {% csrf_token %}
     <div class="container">
       <div>
-        <label style="font-size: 16px; margin: 7px 0">Email</label>
+        <label style="font-size: 16px; margin: 7px 0; color: white;">Email</label>
         <input class="form-control" id="email" name="email" type="text" placeholder="e.g. johndoe@gmail.com" />
       </div>
 
       <div>
-        <label style="font-size: 16px; margin: 7px 0" for="password">Password</label>
+        <label style="font-size: 16px; margin: 7px 0; color: white;" for="password">Password</label>
         <input
           class="form-control"
           id="password"
@@ -23,7 +23,7 @@
         />
       </div>
       <div style="text-align: center; margin: 15px 0">
-        <span style="display: block"
+        <span style="display: block; color: white;"
           >Haven't signed up yet? <a style="color: orange" href="{% url 'register' %}">Sign Up</a></span
         >
         <span style="display: block"><a style="color: orange" href="#">Forgot Password</a></span>

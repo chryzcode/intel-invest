@@ -1,5 +1,4 @@
 @media all and (min-width: 769px) and (max-width: 1024px) {
-
   nav ul {
     padding-right: 40px;
   }
@@ -18,7 +17,6 @@
 }
 
 @media all and (min-width: 621px) and (max-width: 768px) {
-  
   nav ul {
     padding-right: 20px;
   }
@@ -37,12 +35,10 @@
 }
 
 @media all and (min-width: 100px) and (max-width: 620px) {
-
-  div .list{
-   margin-left: auto;
-   margin-right: auto;
- }
-
+  div .list {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   nav ul {
     position: absolute;
@@ -87,13 +83,31 @@
   }
 }
 
-
-@media all and (min-width: 100px) and (max-width: 1000px) {
-.login-container{
-        width: 80%;
-    }
-
-    .register-container{
-        width: 60%;
-    }
+@media all and (min-width: 100px) and (max-width: 950px) {
+  .login-container {
+    width: 80%;
   }
+
+  .register-container {
+    width: 60%;
+  }
+
+  .about {
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+  }
+}
+
+@media all and (min-width: 100px) and (max-width: 500px) {
+  .cards {
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+  }
+}

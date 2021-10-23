@@ -1,37 +1,53 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-<div class="intro" style="margin-top: 50px; padding-right: 50%;">
-  <h2 style="font-weight: 600; color: orange; font-size: 60px;">Intel Invest</h2>
+<div class="intro container" style="padding-right: 50%">
+  <h2 style="font-weight: 600; color: white; font-size: 60px">Intel Invest</h2>
   <div class="moving-bar"></div>
-  <p style="color: orange; font-size: 25px;">Your guaranteed investment platform!</p>
-  <p style="color: orange;">
+  <p style="color: orange; font-size: 25px">Your guaranteed investment platform!</p>
+  <p style="color: orange; font-size: 17px">
     Have a safe and profitable investment on a modern crypto-currency market with <b>Intel Invest</b>!
   </p>
 </div>
 
-
-<div>
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
+<div class="container">
+  <div class="about" style="color: white">
+    <h2 style="color: orange; text-align: center; width: 200px; margin: 0 auto">About Intel Invest</h2>
+    Hello, welcome Intel Invest a young and very promising crypto-currency investment platform for both investors and
+    people from all part of the world!.the emergence of cryptocurrency as a new tool - all this left its mark. From the
+    moment when we have decided to develop direction of trust management binaryaccounting.ltd has entered a new stage.
+    We are always grateful to all our customers for the trust you have given us when you have opened an account on
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
+
+<div class="container">
+  <div class="features" style="text-align: center">
+    <h2 style="color: orange; text-align: center; margin: 0 auto">Features</h2>
+    <p style="color: white; font-size: 19px">
+      We are happy to provide the best investment service in the field of cryptocurrency trading, Forex and private
+      exchange with the maximum professionalism!
+    </p>
+  </div>
+</div>
+<div class="cards">
+  <div class="a-card">
+    <p>ON</p>
+    <p>DDOS PROTECTION</p>
+  </div>
+
+  <div class="a-card">
+    <p>256-BIT</p>
+    <p>SECURITY ENCRYPTION</p>
+  </div>
+
+  <div class="a-card">
+    <p>GUARANTEED</p>
+    <p>PROFIT</p>
+  </div>
+
+  <div class="a-card">
+    <p>24/7</p>
+    <p>SUPPORT</p>
+  </div>
 </div>
 
 {% endblock %}
