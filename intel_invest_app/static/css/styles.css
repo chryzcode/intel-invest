@@ -172,8 +172,8 @@ body {
 }
 
 .a-card{
-  background-color: orange;
-  color: white;
+  background-color: white;
+  color: orange;
   border-radius: 20px;
   height: 180px;
   padding: 15px;
@@ -181,10 +181,21 @@ body {
 }
 
 .a-card:hover{
-  background-color: white;
-  color: orange;
+  background-color: orange;
+  color: white;
   height: 182px;
   transition: ease-in-out 0.6s;
   cursor: default;
+}
+
+.with-intel{
+  margin: 80px 20px;
+}
+
+.with-intel-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: white;
+  margin: 30px 0;
 }
 
