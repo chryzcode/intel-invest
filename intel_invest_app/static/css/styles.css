@@ -247,10 +247,6 @@ li a:active {
 }
 
 .packages-grid{
-  position: relative;
-  animation: features;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 40px;
@@ -273,4 +269,25 @@ li a:active {
   height: 202px;
   cursor: default;
   color: orange;
+}
+
+#package-right{
+  position: relative;
+  animation: package-right;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+#package-center{
+  position: relative;
+  animation: package-center;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+#package-left{
+  position: relative;
+  animation: package-left;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
