@@ -27,7 +27,7 @@
         <i id="cross" class="fa fa-times"></i>
         <i id="bars" class="fas fa-bars"></i>
       </label>
-      <a style="font-family: 'Berkshire Swash', cursive; font-size: 40px; text-decoration: none; color: white; margin-left: 15px;" href="#">Intel Invest</a>
+      <a style="font-family: 'Berkshire Swash', cursive; font-size: 40px; text-decoration: none; color: white; margin-left: 15px;" href="/">Intel Invest</a>
       <ul>
         <li><a href="{% url 'login' %}">Sign In</a></li>
         <li><a href="{% url 'register' %}">Sign Up</a></li>
@@ -36,10 +36,9 @@
         {% endif %}
       </ul>
     </nav>
-    {% block content %}
-    <div class="container">
-
-    </div> 
+      {% block content %}
+  
+      
     {% endblock %}
   </body>
 </html>
