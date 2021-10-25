@@ -176,7 +176,7 @@ li a:active {
   animation-duration: 3s;
   animation-fill-mode: forwards;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 40px;
   margin: 40px 20px;
 }
@@ -201,6 +201,10 @@ li a:active {
 
 .with-intel {
   margin: 0 20px;
+  position: relative;
+  animation: with-intel;
+  animation-duration: 2s;
+  animation-fill-mode:both;
 }
 
 .with-intel-grid {
@@ -216,21 +220,57 @@ li a:active {
   background-image: url("../images/home-background-img-2.JPG");
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 150vh;
 }
 
 .invest-now-btn{
-  width: 100px;
+  width: 300px;
   border: 1px solid orange;
-  padding: 7px;
   text-decoration: none;
-  color: orange;
+  color: white;
   border-radius: 10px;
   margin: 0 auto;
+  font-size: 25px;
+  background-color: orange;
+  display: block;
 }
 
 .invest-now-btn:hover{
   border: 1px solid white;
   color: orange;
   background-color: white;
+  transition: ease-out 1s;
+}
+
+.packages{
+  margin-top: 50px;
+}
+
+.packages-grid{
+  position: relative;
+  animation: features;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+  margin: 40px 20px;
+  text-align: center;
+}
+
+.a-package-grid{
+  border: 2px solid orange;
+  padding: 7px;
+  border-radius: 8px;
+  height: 200px;
+  color: white;
+}
+
+.a-package-grid:hover{
+  border: 2px solid white;
+  border-radius: 10px;
+  height: 202px;
+  cursor: default;
+  color: orange;
 }

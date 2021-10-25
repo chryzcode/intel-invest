@@ -57,3 +57,16 @@
         opacity: 100%;
     }
 }
+
+
+@keyframes with-intel{
+    0%{
+        opacity: 0; 
+        top: 30px;
+    }
+
+    100%{
+        opacity: 100%;
+        top: 0;
+    }
+}
