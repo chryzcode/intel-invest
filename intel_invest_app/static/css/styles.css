@@ -167,7 +167,6 @@ li a:active {
   animation-duration: 3s;
   animation-fill-mode: forwards;
   margin-top: 180px;
-
 }
 
 .cards {
@@ -297,4 +296,10 @@ li a:active {
   grid-column-gap: 40px;
   grid-row-gap: 20px;
   color: white;
+}
+
+.spining-globe{
+  width: 400px; 
+  margin-top: 60px;
+  margin-right: 0 !important;
 }
