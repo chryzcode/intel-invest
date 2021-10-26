@@ -291,15 +291,10 @@ li a:active {
 }
 
 .networking{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 40px;
-  grid-row-gap: 20px;
   color: white;
-}
-
-.spining-globe{
-  width: 400px; 
-  margin-top: 60px;
-  margin-right: 0 !important;
+  background-image: url('../images/globe.gif');
+  background-repeat: no-repeat;
+   background-size: cover;
+  width: 100%;
+  height: 150vh;
 }
