@@ -182,8 +182,8 @@ li a:active {
 }
 
 .a-card {
-  background-color: white;
-  color: orange;
+  background-color: orange;
+  color: white;
   border-radius: 20px;
   height: 180px;
   padding: 15px;
@@ -192,8 +192,7 @@ li a:active {
 }
 
 .a-card:hover {
-  background-color: orange;
-  color: white;
+  background-color: rgba(255, 166, 0, 0.885);
   height: 182px;
   transition: ease-in-out 0.6s;
   cursor: default;
@@ -220,7 +219,7 @@ li a:active {
   background-image: url("../images/home-background-img-2.JPG");
   background-size: cover;
   width: 100%;
-  height: 150vh;
+  height: 160vh;
 }
 
 .invest-now-btn{
@@ -266,9 +265,9 @@ li a:active {
 .a-package-grid:hover{
   border: 2px solid white;
   border-radius: 10px;
-  height: 202px;
   cursor: default;
   color: orange;
+  transition: ease-out 2s;
 }
 
 #package-right{
