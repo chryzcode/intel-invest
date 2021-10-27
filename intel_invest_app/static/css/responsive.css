@@ -104,6 +104,10 @@
     font-size: 17px !important;
   }
 
+  .about{
+    margin-top: 20px;
+  }
+
   .features{
     height: 115vh;
   }
@@ -141,11 +145,11 @@
 @media all and (min-width: 100px) and (max-width: 500px) {
  
   p{
-    font-size: 13px !important;
+    font-size: 15px !important;
   }
 
   .features{
-    height: 140vh;
+    height: 100vh;
   }
   .cards {
     grid-template-columns: 1fr;
@@ -173,7 +177,7 @@
 
 
   .home-background-2{
-  height: 120vh;
+  height: 90vh;
   padding: 0 !important;
   margin-top: 0 !important;
 
