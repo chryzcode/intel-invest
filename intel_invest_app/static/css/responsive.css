@@ -119,7 +119,7 @@
   }
 
   .home-background-2{
-  height: 237vh;
+  height: 180vh;
 }
 
 
@@ -149,8 +149,17 @@
     grid-row-gap: 20px;
   }
 
+  .a-package-grid{
+    height: 100px;
+  }
+
+
   .home-background-2{
-  height: 300vh;
+  height: 230vh;
+}
+
+.invest-now-btn{
+width: 120px;
 }
 
 }
