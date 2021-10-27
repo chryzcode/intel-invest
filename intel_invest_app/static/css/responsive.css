@@ -99,6 +99,11 @@
 }
 
 @media all and (min-width: 500px) and (max-width: 800px) {
+
+  .features{
+    height: 150vh;
+  }
+
   .cards {
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 20px;
@@ -119,13 +124,18 @@
   }
 
   .home-background-2{
-  height: 180vh;
+  height: 250vh;
 }
 
 
 }
 
 @media all and (min-width: 100px) and (max-width: 500px) {
+
+  .features{
+    padding-top: 120px;
+    height: 160vh;
+  }
   .cards {
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
@@ -140,22 +150,18 @@
     font-size: 16px;
   }
 
-  .features {
-    margin-top: 100px;
-  }
-
   .packages-grid {
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
   }
 
   .a-package-grid{
-    height: 100px;
+    height: 130px;
   }
 
 
   .home-background-2{
-  height: 230vh;
+  height: 290vh;
 }
 
 .invest-now-btn{

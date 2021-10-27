@@ -158,7 +158,7 @@ li a:active {
   font-size: 19px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 .features {
@@ -166,7 +166,8 @@ li a:active {
   animation: features;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  margin-top: 180px;
+  height: 110vh;
+  padding-top: 190px;
 }
 
 .cards {
@@ -218,7 +219,7 @@ li a:active {
   background-image: url("../images/home-background-img-2.JPG");
   background-size: cover;
   width: 100%;
-  height: 123vh;
+  height: 180vh;
 }
 
 .invest-now-btn{
