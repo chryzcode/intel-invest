@@ -137,7 +137,7 @@
 @media all and (min-width: 100px) and (max-width: 500px) {
 
   .features{
-    padding-top: 100px;
+
     height: 160vh;
   }
   .cards {
