@@ -138,7 +138,7 @@ li a:active {
   background-image: url("../images/home-background-img.JPG");
   background-size: cover;
   width: 100%;
-  height: 75vh;
+  height: 50vh;
 }
 
 .login-register-background {
@@ -166,7 +166,7 @@ li a:active {
   animation: features;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  height: 110vh;
+  height: 70vh;
   padding-top: 190px;
 }
 
@@ -219,7 +219,7 @@ li a:active {
   background-image: url("../images/home-background-img-2.JPG");
   background-size: cover;
   width: 100%;
-  height: 180vh;
+  height: 130vh;
 }
 
 .invest-now-btn{

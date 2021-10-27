@@ -101,7 +101,7 @@
 @media all and (min-width: 500px) and (max-width: 800px) {
 
   .features{
-    height: 150vh;
+    height: 100vh;
   }
 
   .cards {
@@ -124,7 +124,7 @@
   }
 
   .home-background-2{
-  height: 250vh;
+  height: 180vh;
 }
 
 
@@ -134,7 +134,7 @@
 
   .features{
     padding-top: 120px;
-    height: 160vh;
+    height: 110vh;
   }
   .cards {
     grid-template-columns: 1fr;
@@ -156,12 +156,12 @@
   }
 
   .a-package-grid{
-    height: 130px;
+    height: 180px;
   }
 
 
   .home-background-2{
-  height: 290vh;
+  height: 250vh;
 }
 
 .invest-now-btn{
