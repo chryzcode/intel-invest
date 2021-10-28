@@ -300,3 +300,48 @@ li a:active {
   width: 100%;
   height: 150vh;
 }
+
+.package-invest-btn{
+  color: white;
+  font-family: 'Berkshire Swash', cursive;
+  text-decoration: none;
+  border-bottom: 3px solid purple;
+  font-size: 18px;
+}
+
+.package-invest-btn:hover{
+  color: orange;
+  font-size: 19px;
+  transition: ease-out 1s;
+}
+
+.statistics-grid{
+  /* position: relative;
+  animation: statistics;
+  animation-duration: 3s;
+  animation-fill-mode: forwards; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 70px 185px;
+  grid-column-gap: 13px;
+}
+
+.a-statistic-grid{
+  background-color: orange;
+  color: white;
+  border-radius: 20px;
+  height: 150px;
+  padding: 15px;
+  text-align: center;
+  width: 150px;
+}
+
+.a-statistic-grid:hover{
+  background-color: purple;
+  color: white;
+  border-radius: 20px;
+  height: 153px;
+  padding: 15px;
+  width: 153px;
+  transition: ease-out 0.2s;
+}
