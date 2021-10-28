@@ -36,6 +36,7 @@ nav:after {
   margin-right: 10px;
   font-size: 22px;
   cursor: pointer;
+  color: white;
 }
 
 #cross {
@@ -44,6 +45,8 @@ nav:after {
   margin-right: 10px;
   font-size: 22px;
   cursor: pointer;
+  color: white
+
 }
 
 #check:checked + label i#bars {
@@ -80,6 +83,7 @@ li a:hover {
   font-size: 18.5px;
   border-bottom: 3px solid white;
   transition: ease-out 0.3s;
+  
 }
 
 li a:active {
@@ -158,7 +162,6 @@ li a:active {
   font-size: 19px;
   margin-left: 20px;
   margin-right: 20px;
-  /* margin-bottom: 40px; */
 }
 
 .features {

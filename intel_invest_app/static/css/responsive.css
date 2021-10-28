@@ -44,7 +44,7 @@
     position: absolute;
     width: 100%;
     height: 35vh;
-    top: 65px;
+    top: 55px;
     left: -100%;
     text-align: left;
     background: white;
@@ -63,11 +63,13 @@
 
   nav ul li a {
     font-size: 15px;
-    padding-left: 30px;
+    color: #333;
   }
 
   nav ul li a:hover {
     font-size: 15.5px;
+    color: purple;
+    border-bottom: 0 !important;
   }
 
   nav ul li a:active {
@@ -163,7 +165,7 @@
   }
 
   .about {
-    font-size: 16px;
+    font-size: 19px;
   }
 
   .packages-grid {
