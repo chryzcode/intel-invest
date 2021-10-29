@@ -1,5 +1,5 @@
 * {
-  margin: 0 ;
+  margin: 0;
   padding: 0;
   font-family: "Eczar", sans-serif;
 }
@@ -45,8 +45,7 @@ nav:after {
   margin-right: 10px;
   font-size: 22px;
   cursor: pointer;
-  color: white
-
+  color: white;
 }
 
 #check:checked + label i#bars {
@@ -83,7 +82,6 @@ li a:hover {
   font-size: 18.5px;
   border-bottom: 3px solid white;
   transition: ease-out 0.3s;
-  
 }
 
 li a:active {
@@ -205,7 +203,7 @@ li a:active {
   position: relative;
   animation: with-intel;
   animation-duration: 2s;
-  animation-fill-mode:both;
+  animation-fill-mode: both;
   padding-top: 1%;
 }
 
@@ -218,7 +216,7 @@ li a:active {
   margin-top: 30px;
 }
 
-.home-background-2{
+.home-background-2 {
   background-repeat: no-repeat;
   background-image: url("../images/home-background-img-2.JPG");
   background-size: cover;
@@ -226,7 +224,7 @@ li a:active {
   height: 80vh;
 }
 
-.invest-now-btn{
+.invest-now-btn {
   width: 300px;
   text-decoration: none;
   color: white;
@@ -237,17 +235,17 @@ li a:active {
   display: block;
 }
 
-.invest-now-btn:hover{
+.invest-now-btn:hover {
   color: white;
   background-color: purple;
   transition: ease-out 1s;
 }
 
-.packages{
+.packages {
   margin-top: 50px;
 }
 
-.packages-grid{
+.packages-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 40px;
@@ -256,7 +254,7 @@ li a:active {
   text-align: center;
 }
 
-.a-package-grid{
+.a-package-grid {
   padding: 7px;
   border-radius: 8px;
   height: 170px;
@@ -264,58 +262,58 @@ li a:active {
   background-color: orange;
 }
 
-.a-package-grid:hover{
+.a-package-grid:hover {
   border-radius: 10px;
   cursor: default;
   background-color: purple;
   transition: ease-out 1s;
 }
 
-#package-right{
+#package-right {
   position: relative;
   animation: package-right;
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
 
-#package-center{
+#package-center {
   position: relative;
   animation: package-center;
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
 
-#package-left{
+#package-left {
   position: relative;
   animation: package-left;
   animation-duration: 3s;
   animation-fill-mode: forwards;
 }
 
-.networking{
+.networking {
   color: white;
-  background-image: url('../images/globe.gif');
+  background-image: url("../images/globe.gif");
   background-repeat: no-repeat;
-   background-size: cover;
+  background-size: cover;
   width: 100%;
   height: 150vh;
 }
 
-.package-invest-btn{
+.package-invest-btn {
   color: white;
-  font-family: 'Berkshire Swash', cursive;
+  font-family: "Berkshire Swash", cursive;
   text-decoration: none;
   border-bottom: 3px solid purple;
   font-size: 18px;
 }
 
-.package-invest-btn:hover{
+.package-invest-btn:hover {
   color: orange;
   font-size: 19px;
   transition: ease-out 1s;
 }
 
-.statistics-grid{
+.statistics-grid {
   /* position: relative;
   animation: statistics;
   animation-duration: 3s;
@@ -323,11 +321,11 @@ li a:active {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 13px;
-  grid-row-gap: 30px;
+  grid-row-gap: 20px;
   margin: 50px 20%;
 }
 
-.a-statistic-grid{
+.a-statistic-grid {
   background-color: orange;
   color: white;
   border-radius: 20px;
@@ -337,7 +335,7 @@ li a:active {
   width: 170px;
 }
 
-.a-statistic-grid:hover{
+.a-statistic-grid:hover {
   background-color: purple;
   color: white;
   border-radius: 20px;

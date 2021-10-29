@@ -136,9 +136,9 @@
     height: 170px;
   }
 
-  .home-background-2{
-  height: 130vh;
-}
+  .home-background-2 {
+    height: 130vh;
+  }
 
   .statistics-grid {
     grid-template-columns: 1fr 1fr;
@@ -191,25 +191,15 @@
 
   .statistics-grid {
     grid-template-columns: 1fr;
-    grid-column-gap: 13px;
-    grid-row-gap: 30px;
-    margin: 0 25%;
+    grid-row-gap: 20px;
+     margin: 0 !important;
   }
 
-  .a-statistic-grid {
-    border-radius: 20px;
-    height: 150px;
-    padding: 15px;
-    text-align: center;
-    width: 250px;
-  }
-
-  .a-statistic-grid:hover {
-    width: 253px;
-  }
-
-  .networking{
+  .networking {
     height: 200vh;
   }
 
+  .a-statistic-grid {
+    margin:0 30%;
+  }
 }
