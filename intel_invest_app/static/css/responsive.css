@@ -101,16 +101,15 @@
 }
 
 @media all and (min-width: 500px) and (max-width: 800px) {
-
-  p{
+  p {
     font-size: 17px !important;
   }
 
-  .about{
+  .about {
     margin-top: 20px;
   }
 
-  .features{
+  .features {
     height: 115vh;
   }
 
@@ -141,16 +140,19 @@
   height: 130vh;
 }
 
-
+  .statistics-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+  }
 }
 
 @media all and (min-width: 100px) and (max-width: 500px) {
- 
-  p{
+  p {
     font-size: 15px !important;
   }
 
-  .features{
+  .features {
     height: 100vh;
   }
   .cards {
@@ -173,20 +175,41 @@
     grid-row-gap: 20px;
   }
 
-  .a-package-grid{
+  .a-package-grid {
     height: 150px;
   }
 
+  .home-background-2 {
+    height: 90vh;
+    padding: 0 !important;
+    margin-top: 0 !important;
+  }
 
-  .home-background-2{
-  height: 90vh;
-  padding: 0 !important;
-  margin-top: 0 !important;
+  .invest-now-btn {
+    width: 120px;
+  }
 
-}
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    grid-column-gap: 13px;
+    grid-row-gap: 30px;
+    margin: 0 25%;
+  }
 
-.invest-now-btn{
-width: 120px;
-}
+  .a-statistic-grid {
+    border-radius: 20px;
+    height: 150px;
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+  }
+
+  .a-statistic-grid:hover {
+    width: 253px;
+  }
+
+  .networking{
+    height: 200vh;
+  }
 
 }

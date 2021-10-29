@@ -321,9 +321,10 @@ li a:active {
   animation-duration: 3s;
   animation-fill-mode: forwards; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin: 70px 185px;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 13px;
+  grid-row-gap: 30px;
+  margin: 50px 20%;
 }
 
 .a-statistic-grid{
@@ -333,7 +334,7 @@ li a:active {
   height: 150px;
   padding: 15px;
   text-align: center;
-  width: 150px;
+  width: 170px;
 }
 
 .a-statistic-grid:hover{
@@ -342,6 +343,6 @@ li a:active {
   border-radius: 20px;
   height: 153px;
   padding: 15px;
-  width: 153px;
+  width: 173px;
   transition: ease-out 0.2s;
 }
