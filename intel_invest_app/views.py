@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import SignupForm
+from .forms import SignupForm, PackagesForm
 
 # Create your views here.
 def loginPage(request):
@@ -41,5 +41,47 @@ def registerPage(request):
 
     return render(request, 'registration/register.html', {'form':form})
 
+def logoutUser(request):
+    logout(request)
+    return redirect('home')
+
 def home(request):
     return render(request, 'home.html')
+
+def addPackage(request):
+    form = PackagesForm
+    if request.method == 'POST':
+        form = PackagesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect ('home')
+    return render(request, 'packages.html', {'form':form})
+
+def editPackage(request, pk):
+    pacakage = Packages.objects.get(pk = pk)
+    form =  PackagesForm(instance=package)
+    if request.method == 'POST':
+        form = PackagesForm(request.POST, instance=package)
+        if form.is_valid():
+            form.save()
+            return redirect('view-note', pk=note.pk)
+    context = {'form':form}
+    return render(request, 'packages.html', context)
+
+def allPackages(request):
+    packages = Packages.objects.all()
+    context = {'packages':packages}
+    return render(request, 'all-packages.html', context)
+
+def deletePackage(request, pk):
+    package = Packages.objects.get(pk=pk)
+    package.delete()
+    return redirect('all-packages')
+
+def pacakageDetail(request, pk):
+    package = Packages.objects.get(pk=pk)
+    context = {'package':package}
+    return render(request, 'package-detail.html', context)
+
+def allAdminPage(request):
+    return render(request, 'admin-page.html')

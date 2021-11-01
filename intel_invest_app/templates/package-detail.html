@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>{{package.name}}</h1>
+    <h3>{{package.amount}}</h3>
+    {% if package.description %}
+    <p>{{package.description}}</p>
+    {% endif %}
+
+    {% if package.investors %}
+    <p>{{package.investors}}</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

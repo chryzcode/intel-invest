@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import User
+from .models import User, Packages
 from django.contrib.auth.forms import UserCreationForm
 
 class SignupForm(UserCreationForm):
@@ -19,3 +19,15 @@ class SignupForm(UserCreationForm):
         self.fields['email'].widget.attrs['class']= 'form-control'
         self.fields['password1'].widget.attrs['class']= 'form-control'
         self.fields['password2'].widget.attrs['class']= 'form-control'
+
+
+class PackagesForm(forms.ModelForm):
+    class Meta:
+        model = Packages
+        fields = ('package_name', 'package_price', 'package_description')
+
+        widgets={
+                'package_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Package Name'}),
+                'package_price':forms.NumberInput(attrs={'class':'form-control', 'placeholder':'Package Price'}),
+                'package_description':forms.Textarea(attrs={'class':'form-control',  'placeholder':'Package description...'}),
+        }
