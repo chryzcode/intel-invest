@@ -107,3 +107,42 @@
     }
 }
 
+@keyframes networking{
+    0%{
+        opacity: 0; 
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes home-background-2{
+    0%{
+        opacity: 0; 
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes login-register-background{
+    0%{
+        opacity: 0; 
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes home-background{
+    0%{
+        opacity: 0; 
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}

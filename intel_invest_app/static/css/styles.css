@@ -136,6 +136,10 @@ li a:active {
 }
 
 .home-background {
+  position: relative;
+  animation: home-background;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   background-repeat: no-repeat;
   background-image: url("../images/home-background-img.JPG");
   background-size: cover;
@@ -144,6 +148,10 @@ li a:active {
 }
 
 .login-register-background {
+  position: relative;
+  animation: login-register-background;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   background-repeat: no-repeat;
   background-image: url("../images/login-background-img.JPG");
   background-size: cover;
@@ -217,6 +225,10 @@ li a:active {
 }
 
 .home-background-2 {
+  position: relative;
+  animation: home-background-2;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   background-repeat: no-repeat;
   background-image: url("../images/home-background-img-2.JPG");
   background-size: cover;
@@ -291,6 +303,10 @@ li a:active {
 }
 
 .networking {
+  position: relative;
+  animation: networking;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
   color: white;
   background-image: url("../images/globe.gif");
   background-repeat: no-repeat;
@@ -314,10 +330,10 @@ li a:active {
 }
 
 .statistics-grid {
-  /* position: relative;
+  position: relative;
   animation: statistics;
   animation-duration: 3s;
-  animation-fill-mode: forwards; */
+  animation-fill-mode: forwards;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 13px;
