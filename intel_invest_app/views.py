@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignupForm, PackagesForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def loginPage(request):
@@ -48,40 +49,64 @@ def logoutUser(request):
 def home(request):
     return render(request, 'home.html')
 
+@login_required(login_url='login')
 def addPackage(request):
-    form = PackagesForm
-    if request.method == 'POST':
-        form = PackagesForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect ('home')
+    if request.user.is_superuser:
+        form = PackagesForm
+        if request.method == 'POST':
+            form = PackagesForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect ('home')
+    else:
+        return redirect('home')
     return render(request, 'packages.html', {'form':form})
 
+@login_required(login_url='login')
 def editPackage(request, pk):
-    pacakage = Packages.objects.get(pk = pk)
-    form =  PackagesForm(instance=package)
-    if request.method == 'POST':
-        form = PackagesForm(request.POST, instance=package)
-        if form.is_valid():
-            form.save()
-            return redirect('view-note', pk=note.pk)
-    context = {'form':form}
-    return render(request, 'packages.html', context)
+    if request.user.is_superuser:
+        package = Packages.objects.get(pk=pk)
+        form = PackagesForm(instance=package)
+        if request.method == 'POST':
+            form = PackagesForm(request.POST, instance=package)
+            if form.is_valid():
+                form.save()
+                return redirect ('home')
+        return render(request, 'packages.html', {'form':form})
+    else:
+        return redirect('home')
 
+@login_required(login_url='login')
 def allPackages(request):
-    packages = Packages.objects.all()
-    context = {'packages':packages}
-    return render(request, 'all-packages.html', context)
+    if request.user.is_superuser:
+        packages = Packages.objects.all()
+        context = {'packages':packages}
+        return render(request, 'all-packages.html', context)
+    else:
+        return redirect('home')
 
+@login_required(login_url='login')
 def deletePackage(request, pk):
-    package = Packages.objects.get(pk=pk)
-    package.delete()
-    return redirect('all-packages')
+    if request.user.is_superuser:
+        package = Packages.objects.get(pk=pk)
+        package.delete()
+        return redirect('all-packages')
+    else:
+        return redirect('home')
 
+@login_required(login_url='login')
 def pacakageDetail(request, pk):
-    package = Packages.objects.get(pk=pk)
-    context = {'package':package}
-    return render(request, 'package-detail.html', context)
+    if request.user.is_superuser:
+        package = Packages.objects.get(pk=pk)
+        context = {'package':package}
+        return render(request, 'package-detail.html', context)
+    else:
+        return redirect('home')
 
+@login_required(login_url='login')
 def allAdminPage(request):
-    return render(request, 'admin-page.html')
+    if request.user.is_superuser:
+        return render(request, 'admin-page.html')
+    else:
+        return redirect('home')
+

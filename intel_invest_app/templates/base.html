@@ -29,10 +29,12 @@
       </label>
       <a style="font-family: 'Berkshire Swash', cursive; font-size: 40px; text-decoration: none; color: white; margin-left: 15px;" href="/">Intel Invest</a>
       <ul>
+        {% if user.is_authenticated %}
+        <li><a href="#">{{request.user.username}}</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
         <li><a href="{% url 'login' %}">Sign In</a></li>
         <li><a href="{% url 'register' %}">Sign Up</a></li>
-        {% if user.is_authenticated %}
-        <li><a href="#">{{request.user}}</a></li>
         {% endif %}
       </ul>
     </nav>
