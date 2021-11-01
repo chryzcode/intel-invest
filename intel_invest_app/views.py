@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignupForm, PackagesForm
 from django.contrib.auth.decorators import login_required
+from .models import Packages
 
 # Create your views here.
 def loginPage(request):
@@ -57,21 +58,21 @@ def addPackage(request):
             form = PackagesForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect ('home')
+                return redirect ('an-admin')
     else:
         return redirect('home')
     return render(request, 'packages.html', {'form':form})
 
 @login_required(login_url='login')
-def editPackage(request, pk):
+def editPackage(request, package_id):
     if request.user.is_superuser:
-        package = Packages.objects.get(pk=pk)
+        package = Packages.objects.get(pk=package_id)
         form = PackagesForm(instance=package)
         if request.method == 'POST':
             form = PackagesForm(request.POST, instance=package)
             if form.is_valid():
                 form.save()
-                return redirect ('home')
+                return redirect ('all-packages')
         return render(request, 'packages.html', {'form':form})
     else:
         return redirect('home')
@@ -83,7 +84,7 @@ def allPackages(request):
         context = {'packages':packages}
         return render(request, 'all-packages.html', context)
     else:
-        return redirect('home')
+        return redirect('an-admin')
 
 @login_required(login_url='login')
 def deletePackage(request, pk):

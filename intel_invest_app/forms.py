@@ -28,6 +28,6 @@ class PackagesForm(forms.ModelForm):
 
         widgets={
                 'package_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Package Name'}),
-                'package_price':forms.NumberInput(attrs={'class':'form-control', 'placeholder':'Package Price'}),
+                'package_price':forms.NumberInput(attrs={'class':'form-control', 'placeholder':'$ Package Price'}),
                 'package_description':forms.Textarea(attrs={'class':'form-control',  'placeholder':'Package description...'}),
         }

@@ -12,7 +12,6 @@
                 <thead>
                     <tr>
                         <th>Package Name</th>
-                        <th>Package Description</th>
                         <th>Package Price</th>
                         <th>Action</th>
                     </tr>
@@ -21,11 +20,10 @@
                     {% for package in packages %}
                     <tr>
                         <td>{{ package.package_name }}</td>
-                        <td>{{ package.package_description }}</td>
-                        <td>{{ package.package_price }}</td>
+                        <td>${{ package.package_price }}</td>
                         <td>
-                            <a href="{% url 'edit-package', package.id %}" class="btn btn-primary">Edit</a>
-                            <a href="{% url 'delete-package', package.id %}" class="btn btn-danger">Delete</a>
+                            <a href="{% url 'edit-package' package.id %}" class="btn btn-primary">Edit</a>
+                            <a href="{% url 'delete-package' package.id %}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     {% endfor %}
