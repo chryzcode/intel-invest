@@ -58,10 +58,10 @@ def addPackage(request):
             form = PackagesForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect ('an-admin')
+                return redirect ('all-packages')
+        return render(request, 'packages.html', {'form':form})
     else:
         return redirect('home')
-    return render(request, 'packages.html', {'form':form})
 
 @login_required(login_url='login')
 def editPackage(request, package_id):
@@ -84,7 +84,7 @@ def allPackages(request):
         context = {'packages':packages}
         return render(request, 'all-packages.html', context)
     else:
-        return redirect('an-admin')
+        return redirect('home')
 
 @login_required(login_url='login')
 def deletePackage(request, pk):
@@ -96,18 +96,12 @@ def deletePackage(request, pk):
         return redirect('home')
 
 @login_required(login_url='login')
-def pacakageDetail(request, pk):
+def pacakageDetail(request, package_id):
     if request.user.is_superuser:
-        package = Packages.objects.get(pk=pk)
+        package = Packages.objects.get(pk=package_id)
         context = {'package':package}
         return render(request, 'package-detail.html', context)
     else:
         return redirect('home')
 
-@login_required(login_url='login')
-def allAdminPage(request):
-    if request.user.is_superuser:
-        return render(request, 'admin-page.html')
-    else:
-        return redirect('home')
 

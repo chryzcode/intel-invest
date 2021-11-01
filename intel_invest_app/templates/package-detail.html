@@ -1,17 +1,21 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container">
-    <h1>{{package.name}}</h1>
-    <h3>{{package.amount}}</h3>
-    {% if package.description %}
-    <p>{{package.description}}</p>
-    {% endif %}
-
-    {% if package.investors %}
-    <p>{{package.investors}}</p>
-    {% endif %}
-
+  <h1>Package Name: {{package.package_name}}</h1><br>
+  <h3>Package Price: ${{package.package_price}}</h3><br>
+  {% if package.package_description %}
+  <h4>Package Description:</h4>
+  <p>{{package.package_description}}</p><br>
+  {% endif %} 
+  <h3>All Investors</h3>
+  {% if package.investors.all %} 
+  {% for investors in package.investors.all%}
+  <ul>
+      <li>{{investors.username}}</li>
+  </ul>
+  {% endfor %} 
+  {% else %}
+  <p>There are yet to be investors</p>
+  {% endif %}
 </div>
 
 {% endblock %}

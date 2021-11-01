@@ -4,8 +4,10 @@
     <div class="row">
         <div class="col-md-12">
             <h1>All Packages</h1>
+            <a href="{% url 'add-package' %}">Add package</a>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-striped">
@@ -19,7 +21,7 @@
                 <tbody>
                     {% for package in packages %}
                     <tr>
-                        <td>{{ package.package_name }}</td>
+                        <td><a href="{% url 'package-detail' package.id %}">{{ package.package_name }}</a></td>
                         <td>${{ package.package_price }}</td>
                         <td>
                             <a href="{% url 'edit-package' package.id %}" class="btn btn-primary">Edit</a>
