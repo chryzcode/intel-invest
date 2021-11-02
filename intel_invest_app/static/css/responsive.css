@@ -145,6 +145,16 @@
     grid-column-gap: 20px;
     grid-row-gap: 30px;
   }
+
+  .networking{
+    height: 180vh;
+  }
+
+ 
+.footer-grid {
+  grid-template-columns: 2fr 1fr;
+  grid-row-gap: 30px;
+}
 }
 
 @media all and (min-width: 100px) and (max-width: 500px) {
@@ -202,4 +212,14 @@
   .a-statistic-grid {
     margin:0 30%;
   }
+
+  .networking{
+    height: 220vh;
+  }
+
+ 
+.footer-grid {
+  grid-template-columns: 2fr;
+  grid-row-gap: 30px;
+}
 }
