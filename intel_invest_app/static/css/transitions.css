@@ -147,14 +147,3 @@
     }
 }
 
-@keyframes payment-images{
-    0%{
-        top: 0; 
-        left: 0;
-    }
-
-    100%{
-        top: 0;
-        left: 1000px;
-    }
-}

@@ -362,16 +362,26 @@ li a:active {
 }
 
 .payment-images {
-  position: relative;
-  animation: payment-images;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: linear;
-  margin: 30px 0;
+  margin: 30px auto;
+  text-align: center;
 }
 
-.a-payment-logo{
+.a-payment-logo {
   margin: 0 30px;
+}
+
+footer {
+  background-repeat: no-repeat;
+  background-image: url("../images/home-background-img.JPG");
+  background-size: cover;
+  color: white;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-column-gap: 30px;
 }
