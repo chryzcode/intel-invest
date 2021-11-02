@@ -97,11 +97,8 @@ def deletePackage(request, pk):
 
 @login_required(login_url='login')
 def pacakageDetail(request, package_id):
-    if request.user.is_superuser:
         package = Packages.objects.get(pk=package_id)
         context = {'package':package}
         return render(request, 'package-detail.html', context)
-    else:
-        return redirect('home')
 
 

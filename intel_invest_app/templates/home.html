@@ -87,44 +87,45 @@
       <h5>Starter Pack</h5>
       <p>Deposit: $50</p>
       <p>40% ROI</p>
-      <a class="package-invest-btn" href="">Invest</a>
+      <a class="package-invest-btn" href="{% url 'package-detail' package_id=1 %}">Invest</a>
     </div>
 
     <div id="package-center" class="a-package-grid">
       <h5>Early Bird Pack</h5>
       <p>Deposit: $100</p>
       <p>40% ROI</p>
-      <a class="package-invest-btn" href="">Invest</a>
+      <a class="package-invest-btn" href="{% url 'package-detail' package_id=2 %}">Invest</a>
     </div>
 
     <div id="package-right" class="a-package-grid">
       <h5>Comrade Pack</h5>
       <p>Deposit: $200</p>
       <p>40% ROI</p>
-      <a class="package-invest-btn" href="">Invest</a>
+      <a class="package-invest-btn" href="{% url 'package-detail' package_id=3 %}">Invest</a>
     </div>
 
     <div id="package-left" class="a-package-grid">
       <h5>Professional Pack</h5>
       <p>Deposit: $500</p>
       <p>40% ROI</p>
-      <a class="package-invest-btn" href="">Invest</a>
+      <a class="package-invest-btn" href="{% url 'package-detail' package_id=4 %}">Invest</a>
     </div>
 
     <div id="package-center" class="a-package-grid">
       <h5>Sterling Pack</h5>
       <p>Deposit: $1000</p>
       <p>40% ROI</p>
-      <a class="package-invest-btn" href="">Invest</a>
+      <a class="package-invest-btn" href="{% url 'package-detail' package_id=5 %}">Invest</a>
     </div>
 
     <div id="package-right" class="a-package-grid">
       <h5>Elite Pack</h5>
       <p>Deposit: $2000</p>
       <p>40% ROI</p>
-      <a class="package-invest-btn" href="">Invest</a>
+      <a class="package-invest-btn" href="{% url 'package-detail' package_id=6 %}">Invest</a>
     </div>
   </div>
+  
 </div>
 
 <div class="networking">
@@ -221,7 +222,8 @@
     </div>
   </div>
 
-  <div style="text-align: center; margin-bottom: 0 !important; margin-top: 40px;"
+  <div style="text-align: center; margin-bottom: 0 !important; margin-top: 4
+  0px;"
     >IntelInvest &copy; 2021 | All rights reserved.</
   >
 </footer>

@@ -80,7 +80,6 @@ li a {
 li a:hover {
   color: purple;
   font-size: 18.5px;
-  border-bottom: 3px solid white;
   transition: ease-out 0.3s;
 }
 
