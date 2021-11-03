@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
     path('edit-package/<str:package_id>/', views.editPackage, name='edit-package'),
     path('delete-package/<str:package_id>/', views.deletePackage, name='delete-package'),
+    path('faqs-page/', views.faqspage, name='faqs-page'),
 ]

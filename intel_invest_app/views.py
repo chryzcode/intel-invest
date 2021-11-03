@@ -101,4 +101,7 @@ def pacakageDetail(request, package_id):
         context = {'package':package}
         return render(request, 'package-detail.html', context)
 
+def faqspage(request):
+    return render(request, 'faq-pages.html')
+
 
