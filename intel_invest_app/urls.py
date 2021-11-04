@@ -12,4 +12,5 @@ urlpatterns = [
     path('edit-package/<str:package_id>/', views.editPackage, name='edit-package'),
     path('delete-package/<str:package_id>/', views.deletePackage, name='delete-package'),
     path('faqs-page/', views.faqspage, name='faqs-page'),
+    path('about-us/', views.aboutus, name='about-us'),
 ]

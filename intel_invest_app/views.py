@@ -104,4 +104,7 @@ def pacakageDetail(request, package_id):
 def faqspage(request):
     return render(request, 'faq-pages.html')
 
+def aboutus(request):
+    return render(request, 'about-us.html')
+
 

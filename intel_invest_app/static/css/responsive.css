@@ -154,6 +154,10 @@
     grid-template-columns: 2fr 1fr;
     grid-row-gap: 30px;
   }
+
+  .faq-grid{
+  grid-template-columns: 1fr;
+}
 }
 
 @media all and (min-width: 100px) and (max-width: 500px) {
@@ -225,4 +229,8 @@
   .a-payment-logo {
   margin: 0 5px;
   }
+
+  .faq-grid{
+  grid-template-columns: 1fr;
+}
 }

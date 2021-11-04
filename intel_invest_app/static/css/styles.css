@@ -384,3 +384,14 @@ footer {
   grid-template-columns: 2fr 1fr 1fr;
   grid-column-gap: 30px;
 }
+
+.faq-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+}
+
+summary{
+  font-size: 19px;
+  color: orange;
+}
