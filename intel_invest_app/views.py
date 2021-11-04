@@ -107,4 +107,7 @@ def faqspage(request):
 def aboutus(request):
     return render(request, 'about-us.html')
 
+def rules(request):
+    return render(request, 'rules.html')
+
 
