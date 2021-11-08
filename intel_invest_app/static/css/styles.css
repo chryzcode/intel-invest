@@ -139,8 +139,7 @@ li a:active {
   animation: home-background;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  background-repeat: no-repeat;
-  background-image: url("../images/home-background-img.JPG");
+  background: url("../images/home-background-img.JPG")  no-repeat center center fixed;
   background-size: cover;
   width: 100%;
   height: 70vh;
@@ -151,8 +150,7 @@ li a:active {
   animation: login-register-background;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  background-repeat: no-repeat;
-  background-image: url("../images/login-background-img.JPG");
+  background: url("../images/login-background-img.JPG")  no-repeat center center fixed;
   background-size: cover;
   width: 100%;
   height: 100vh;
