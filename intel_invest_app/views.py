@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import SignupForm, PackagesForm
+from .forms import *
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.shortcuts import get_object_or_404
@@ -119,10 +119,10 @@ def userProfile(request, username):
     for package in package_invested:
         total_investment_price += package.package_price
 
-    if user == username or user.is_superuser:
+    if request.user == user.is_superuser or request.user :
         context = {'user':user, 'package_invested':package_invested, 'total_investment_price':total_investment_price}
         return render(request, 'user-profile.html', context)
     else:
-        return redirect('user-profile', username= request.user.username)
+        return redirect('home')
 
 

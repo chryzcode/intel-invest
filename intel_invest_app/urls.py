@@ -14,5 +14,5 @@ urlpatterns = [
     path('faqs-page/', views.faqspage, name='faqs-page'),
     path('about-us/', views.aboutus, name='about-us'),
     path('rules/', views.rules, name='rules'),
-    path('profile/<username>/', views.userProfile, name='user-profile')
+    path('profile/<username>/', views.userProfile, name='user-profile'),
 ]

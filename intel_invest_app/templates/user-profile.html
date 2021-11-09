@@ -1,14 +1,27 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<div style="margin-top: 50px; height: 80vh;" class="container">
+  <h2 style="text-align: center; color: orange">{{user.full_name}}</h2>
+  <p style="text-align: right;">Total Investment: ${{total_investment_price}}</p>
+  <div>
+    <p>{{user.email}}</p>
+    <p>{{user.username}}</p>
+  </div>
 
-{% block content %}
-<div class="container">
-    <h2 style="text-align: center; color: orange;">{{user.full_name}}</h2>
-  {% for package in package_invested %}
-  <h4>{{package}}</h4>
-  <h2>${{package.package_price}}</h2>
+  <h4 style="text-align: center; color: orange">My Investments</h4>
+  
+  {% if package_invested %}
+  <div class="packages-grid">
+     {% for package in package_invested %}
+    <div class="a-package-grid">
+      <h5>{{package}}</h5>
+    <p>${{package.package_price}}</p>
+    <p>*invested</p>
+    <a class="package-invest-btn" href="{% url 'package-detail' package.id %}">VIEW</a>
+    </div>
     {% endfor %}
-<h3>total investment amount: {{total_investment_price}}</h3>
-
+  </div>
+  {% else %}
+  <h3 style="text-align: center; margin-top: 30px;">No investment as at present!!!</h3>
+  {% endif %}
 </div>
-{% include 'footer.html' %}
-{% endblock %}
+{% include 'footer.html' %} {% endblock %}

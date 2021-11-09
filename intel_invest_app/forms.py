@@ -4,7 +4,7 @@ from .models import User, Packages
 from django.contrib.auth.forms import UserCreationForm
 
 class SignupForm(UserCreationForm):
-    full_name = forms.CharField(max_length = 100)
+    full_name = forms.CharField(max_length = 200)
     email = forms.EmailField()
     class Meta:
         model = User
@@ -30,4 +30,19 @@ class PackagesForm(forms.ModelForm):
                 'package_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Package Name'}),
                 'package_price':forms.NumberInput(attrs={'class':'form-control', 'placeholder':'$ Package Price'}),
                 'package_description':forms.Textarea(attrs={'class':'form-control',  'placeholder':'Package description...'}),
+        }
+
+class UserProfileForm(ModelForm):
+    class Meta:
+        model = User
+        fields = [
+            'full_name', 
+            'email', 
+            'username',
+        ]
+
+        widgets={
+                'full_name':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Full Name'}),
+                'email':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email'}),
+                'username':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}),
         }
