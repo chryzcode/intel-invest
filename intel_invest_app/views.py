@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignupForm, PackagesForm
 from django.contrib.auth.decorators import login_required
-from .models import Packages
+from .models import *
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 def loginPage(request):
@@ -109,5 +110,19 @@ def aboutus(request):
 
 def rules(request):
     return render(request, 'rules.html')
+
+@login_required(login_url='login')
+def userProfile(request, username):
+    user = get_object_or_404(User, username=username)
+    package_invested = Packages.objects.filter(investors=user)
+    total_investment_price = 0
+    for package in package_invested:
+        total_investment_price += package.package_price
+
+    if user == username or user.is_superuser:
+        context = {'user':user, 'package_invested':package_invested, 'total_investment_price':total_investment_price}
+        return render(request, 'user-profile.html', context)
+    else:
+        return redirect('user-profile', username= request.user.username)
 
 

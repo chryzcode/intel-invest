@@ -7,10 +7,10 @@ class User(AbstractUser):
     full_name = models.CharField(max_length=250, null=True)
     email = models.EmailField(unique=True)
 
+
     USERNAME_FIELD = 'email'
     
     REQUIRED_FIELDS = ['username']
-
 
 class Packages(models.Model):
     package_name = models.CharField(max_length=250)
@@ -20,3 +20,6 @@ class Packages(models.Model):
 
     def __str__(self):
         return self.package_name
+
+
+
