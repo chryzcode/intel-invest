@@ -5,6 +5,7 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.shortcuts import get_object_or_404
+from datetime import datetime
 
 # Create your views here.
 def loginPage(request):
@@ -98,8 +99,10 @@ def deletePackage(request, pk):
 
 @login_required(login_url='login')
 def pacakageDetail(request, package_id):
+        user = request.user
         package = Packages.objects.get(pk=package_id)
-        context = {'package':package}
+        current_time = datetime.now().strftime('%H:%M:%S').save()
+        context = {'package':package, 'current_time':current_time}
         return render(request, 'package-detail.html', context)
 
 def faqspage(request):
@@ -125,4 +128,14 @@ def userProfile(request, username):
     else:
         return redirect('home')
 
+
+@login_required(login_url='login')
+def payment(request):
+    form = PaymentForm
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect ('home')
+    return render(request, 'payment.html')
 

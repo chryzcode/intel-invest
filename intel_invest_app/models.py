@@ -21,5 +21,22 @@ class Packages(models.Model):
     def __str__(self):
         return self.package_name
 
+class Cryptocurrency(models.Model):
+    name = models.CharField(max_length=250)
 
+class Payment(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    screenshot = models.ImageField(upload_to='screenshot/')
+    cryptocurrency = models.CharField(max_length=200)
+    transanction_hash = models.CharField(max_length=300)
+    package = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.user + ' ' + self.package
+
+    def save(self, request, *args, **kwargs):
+        self.user = request.user
+        return super(Payment, self).save(*args, **kwargs)
+
+# class ConfirmPayment(models.Model):
 

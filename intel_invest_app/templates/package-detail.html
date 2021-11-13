@@ -1,14 +1,31 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+
+{% block content %}
 <div style="margin-top: 50px;" class="container">
   <h1 style="color: orange; text-align: center">{{package.package_name}}</h1>
- <h5 style="color: orange;"> Package Price: ${{package.package_price}}</h5>
+ <h5 style="text-align: right;"> Package Price: ${{package.package_price}}</h5>
 
+ <h6>{{an_investor}}</h6>
+<h1>{{current_time}}</h1>
   {% if package.package_description %}
   <br><br>
   <h4 style="color: orange; text-align: center;">Package Info</h4>
   <p>{{package.package_description}}</p>
   <br />
   {% endif %}
+
+{% if request.user in package.investors.all %}
+  <h4>Hello {{request.user.username}},</h4>
+  <p>
+    You have already invested in this package and you can withdraw only after thirty days.
+  </p>
+ <a style="text-align: center;" class="invest-now-btn" href="">Withdraw</a>
+{% endif %}
+
+
+
+
+
   {% if user.is_superuser %}
  
   <h3>All Investors</h3>

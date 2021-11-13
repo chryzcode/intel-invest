@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import User, Packages
+from .models import *
 from django.contrib.auth.forms import UserCreationForm
 
 class SignupForm(UserCreationForm):
@@ -46,3 +46,18 @@ class UserProfileForm(ModelForm):
                 'email':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email'}),
                 'username':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Username'}),
         }
+
+class PaymentForm(ModelForm):
+    class Meta:
+        model = Payment
+        fields = "__all__"
+        exclude = ['user']
+
+        widgets={
+            'transanction_hash':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Payment transanction hash'}),
+            'cryptocurrency':forms.Select(choices= Cryptocurrency.objects.all().values_list('name', 'name'), attrs={'class':'form-control'}),
+            'package':forms.Select(choices= Packages.objects.all().values_list('package_name', 'package_name'), attrs={'class':'form-control'}),
+    }
+
+    def __init__(self, *args, **kwargs):
+        super(BannerForm, self).__init__(*args, **kwargs)
