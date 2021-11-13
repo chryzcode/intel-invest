@@ -5,7 +5,7 @@ from .forms import *
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.shortcuts import get_object_or_404
-from datetime import datetime
+from django.core.mail import send_mail, BadHeaderError
 
 # Create your views here.
 def loginPage(request):
@@ -134,7 +134,20 @@ def payment(request):
     if request.method == 'POST':
         form = PaymentForm(request.POST)
         if form.is_valid():
-            form.save()
+            subject = "Investment Payment" 
+            body = {
+			'user': form.cleaned_data['user'], 
+			'screenshot': form.cleaned_data['screenshot'], 
+			'cryptocurrency': form.cleaned_data['cryptocurrency'], 
+			'transanction_hash':form.cleaned_data['transanction_hash'], 
+            'package':form.cleaned_data['package'],
+			}
+            message = "\n".join(body.values())
+            try:
+                send_mail(subject, message, request.user.email, ['intelinvestcontact@gmail.com']) 
+            except BadHeaderError:
+				messages.error(request, 'An error occured during registration')
+			return redirect ("main:homepage")
             return redirect ('home')
     context = {'form':form}
     return render(request, 'payment.html', context)

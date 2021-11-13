@@ -24,6 +24,9 @@ class Packages(models.Model):
 class Cryptocurrency(models.Model):
     name = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.name
+
 class Payment(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     screenshot = models.ImageField(upload_to='screenshot/')
@@ -37,6 +40,22 @@ class Payment(models.Model):
     def save(self, request, *args, **kwargs):
         self.user = request.user
         return super(Payment, self).save(*args, **kwargs)
+
+class UserWallet(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    bitcoin = models.CharField(max_length=250, null=True, blank=True)
+    ethereum = models.CharField(max_length=250, null=True, blank=True)
+    litecoin = models.CharField(max_length=250, null=True, blank=True)
+    bnb = models.CharField(max_length=250, null=True, blank=True)
+    busd = models.CharField(max_length=250, null=True, blank=True)
+    usdt = models.CharField(max_length=250, null=True, blank=True)
+
+    def __str__(self):
+        return self.user + ' ' + str(wallets)
+
+    def save(self, request, *args, **kwargs):
+        self.user = request.user
+        return super(UserWallet, self).save(*args, **kwargs)
 
 # class ConfirmPayment(models.Model):
 
