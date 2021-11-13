@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>You are to pay into the Intel Invest Wallet</p>
+<ul>
+    <li>Bitcoin: </li>
+    <li>Etherium: </li>
+    <li>Lyte coin: </li>
+</ul>
+<div style="height: 80vh; margin-top: 50px;" class="container">
+    {{ form.as_p}}
+</div>
+{% include 'footer.html' %}
+{% endblock %}

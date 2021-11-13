@@ -60,4 +60,4 @@ class PaymentForm(ModelForm):
     }
 
     def __init__(self, *args, **kwargs):
-        super(BannerForm, self).__init__(*args, **kwargs)
+        super(PaymentForm, self).__init__(*args, **kwargs)

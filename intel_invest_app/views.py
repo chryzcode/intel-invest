@@ -137,5 +137,6 @@ def payment(request):
         if form.is_valid():
             form.save()
             return redirect ('home')
-    return render(request, 'payment.html')
+    context = {'form':form}
+    return render(request, 'payment.html', context)
 
