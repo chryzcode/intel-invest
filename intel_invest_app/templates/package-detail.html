@@ -31,7 +31,7 @@
   <h3>All Investors</h3>
   {% if package.investors.all %} {% for investors in package.investors.all %}
   <ul>
-    <li> {{user.full_name}} - {{investors.username}}</li>
+    <li><a href="{% url 'user-profile' investors.username %}">{{investors.full_name}} - {{investors.username}}</a></li>
   </ul>
   {% endfor %} {% else %}
   <p>There are yet to be investors</p>

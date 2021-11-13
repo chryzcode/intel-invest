@@ -1,14 +1,16 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<p>You are to pay into the Intel Invest Wallet</p>
-<ul>
-    <li>Bitcoin: </li>
-    <li>Etherium: </li>
-    <li>Lyte coin: </li>
-</ul>
-<div style="height: 80vh; margin-top: 50px;" class="container">
-    {{ form.as_p}}
+{% extends 'base.html' %} {% block content %}
+<div style="height: 80vh; margin-top: 50px" class="container">
+  <h2 style="color: orange; text-align: center">Payment Form</h2>
+  <div style="text-align: right;">
+    <h5 style="margin-top: 25px; color: orange;">Intel Invest Wallets</h5>
+    <ul>
+      <li>Bitcoin: 239349ghid9yufr9gh9ghhgtryh</li>
+      <li>Etherium: 6ytrytrou-9uer0ojkfkgpjkpghh</li>
+      <li>Lyte coin: yhtyhtr-0utj0jgh=oj=jgophkohj</li>
+    </ul>
+  </div>
+  <span>Share a screenshot of the trasanction payment</span>
+  {{ form.as_p}}
+  <input type="text">
 </div>
-{% include 'footer.html' %}
-{% endblock %}
+{% include 'footer.html' %} {% endblock %}

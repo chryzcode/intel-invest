@@ -101,8 +101,7 @@ def deletePackage(request, pk):
 def pacakageDetail(request, package_id):
         user = request.user
         package = Packages.objects.get(pk=package_id)
-        current_time = datetime.now().strftime('%H:%M:%S').save()
-        context = {'package':package, 'current_time':current_time}
+        context = {'package':package, 'user':user}
         return render(request, 'package-detail.html', context)
 
 def faqspage(request):
