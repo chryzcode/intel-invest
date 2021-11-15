@@ -134,30 +134,20 @@ def userProfile(request, username):
 
 @login_required(login_url='login')
 def payment(request):
-    port = settings.EMAIL_PORT
-    smtp_server = settings.EMAIL_HOST
-    receiver_email = settings.EMAIL_HOST_USER
-    password = settings.EMAIL_HOST_PASSWORD
     sender_email = request.user.email
     form = PaymentForm
     if request.method == 'POST':
         form = PaymentForm(request.POST)
         if form.is_valid():
-            subject = "Investment Payment"
-            body = {
-                'cryptocurrency': request.POST['cryptocurrency'],
-                'transanction_hash': request.POST['transanction_hash'],
-                'package': request.POST['package'],
+            form.save()
+            email_subject = f'Investment Payment {form.cleaned_data["email"]}'
+            email_message = {
+            'email_cryptocurrency':form.cleaned_data["cryptocurrency"],
+            'transanction_hash':form.cleaned_data["transanction_hash"],
+            'package':form.cleaned_data["package"],
+            'screenshot':form.cleaned_data["screenshot"],
             }
-            message = "\n".join(body.values())
-            context = ssl.create_default_context()
-            with smtplib.SMTP(smtp_server, port) as server:
-                server.ehlo()  # Can be omitted
-                server.starttls(context=context)
-                server.ehlo()  # Can be omitted
-                server.login(sender_email, password)
-                server.sendmail(sender_email, receiver_email, message)
-            return redirect ('user-profile', request.user.username)
+            send_mail(email_subject, email_message, sender_email, settings.COMPANY_EMAIL)
     context = {'form':form}
     return render(request, 'payment.html', context)
 
