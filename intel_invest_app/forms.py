@@ -61,3 +61,24 @@ class PaymentForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(PaymentForm, self).__init__(*args, **kwargs)
+
+class UserWalletForm(ModelForm):
+    class Meta:
+        model = UserWallet
+        fields = "__all__"
+        exclude = ['user']
+
+        widgets={
+            'bitcoin':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Bitcoin wallet'}),
+            'ethereum':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Ethereum wallet'}),
+            'litecoin':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Litecoin wallet'}),
+            'bnb':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Bnb wallet'}),
+            'busd':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Busd wallet'}),
+            'usdt':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Usdt wallet'}),
+    }
+
+    def user (self, user):
+        self.user = user.id
+
+    def __init__(self, *args, **kwargs):
+        super(UserWalletForm, self).__init__(*args, **kwargs)

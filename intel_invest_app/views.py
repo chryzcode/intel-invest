@@ -160,3 +160,16 @@ def payment(request):
     context = {'form':form}
     return render(request, 'payment.html', context)
 
+@login_required(login_url='login')
+def addUserWallet(request):
+    form = UserWalletForm
+    if request.method == 'POST':
+        form = UserWalletForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.user = request.user                                                
+            form.save()
+            return redirect ('user-profile', request.user.username)
+    return render(request, 'add-user-wallets.html', {'form':form})
+
+

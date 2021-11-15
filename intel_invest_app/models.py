@@ -35,11 +35,9 @@ class Payment(models.Model):
     package = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.user + ' ' + self.package
+        return self.user.username + ' ' + str('wallets') + ' ' + str(self.user.email)
 
-    def save(self, request, *args, **kwargs):
-        self.user = request.user
-        return super(Payment, self).save(*args, **kwargs)
+
 
 class UserWallet(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
@@ -51,11 +49,10 @@ class UserWallet(models.Model):
     usdt = models.CharField(max_length=250, null=True, blank=True)
 
     def __str__(self):
-        return self.user + ' ' + str(wallets)
+        return self.user.username  + ' ' + str('wallets') + ' ' + str(self.user.email)
 
-    def save(self, request, *args, **kwargs):
-        self.user = request.user
-        return super(UserWallet, self).save(*args, **kwargs)
+
+
 
 # class ConfirmPayment(models.Model):
 
