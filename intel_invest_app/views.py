@@ -179,8 +179,8 @@ def addUserWallet(request):
     return render(request, 'add-user-wallets.html', {'form':form})
 
 def editUserWallet(request):
-    wallets = UserWallet.objects.filter(user=request.user)
-    form = UserWalletForm
+    wallets = UserWallet.objects.filter(user=request.user).first()
+    form = UserWalletForm(instance=wallets)
     if request.method == 'POST':
         form = UserWalletForm(request.POST, instance=wallets)
         if form.is_valid():
