@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<div style="margin-top: 50px; height: 100vh" class="container">
+<div style="margin-top: 50px; height: 150vh" class="container">
   <h2 style="text-align: center; color: orange">{{user.full_name}}</h2>
   <p style="text-align: right">Total Investment: ${{total_investment_price}}</p>
   <div>
@@ -9,7 +9,7 @@
   {% if request.user == user %}
   {% if wallets %}
   <p style="text-align: center">
-    <a style="color: orange; font-size: 19px" href="{% url 'add-wallet' %}">Edit Wallet</a>
+    <a style="color: orange; font-size: 19px" href="{% url 'edit-wallet' %}">Edit Wallet</a>
   </p>
   {% else %}
    <p style="text-align: center">
@@ -18,6 +18,7 @@
   {% endif %}
   {% endif %}
 
+
 <button style="background-color: orange; border: 0;" class="btn btn-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
    My Wallet Addresses
   </button>
@@ -25,24 +26,26 @@
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     {% if wallets %}
-      {% if wallets.bitcoin %}
-      <p>Bitcoin: {{wallets.bitcoin}}</p>
-      {% endif %}
-      {% if wallets.ethereum %}
-      <p>Ethereum: {{wallets.ethereum}}</p>
-      {% endif %}
-      {% if wallets.litecoin %}
-      <p>Litecoin: {{wallets.litecoin}}</p>
-      {% endif %}
-      {% if wallets.bnb %}
-      <p>Binance Coin: {{wallets.bnb}}</p>
-      {% endif %}
-      {% if wallets.busd %}
-      <p>Binance USD Coin: {{wallets.busd}}</p>
-      {% endif %}
-      {% if wallets.usdt %}
-      <p>Tether USD: {{wallets.usdt}}</p>
-      {% endif %}
+      {% for wallet in wallets %}
+        {% if wallet.bitcoin %}
+        <p>Bitcoin: {{wallet.bitcoin}}</p>
+        {% endif %}
+        {% if wallet.ethereum %}
+        <p>Ethereum: {{wallet.ethereum}}</p>
+        {% endif %}
+        {% if wallet.litecoin %}
+        <p>Litecoin: {{wallet.litecoin}}</p>
+        {% endif %}
+        {% if wallet.bnb %}
+        <p>Binance Coin: {{wallet.bnb}}</p>
+        {% endif %}
+        {% if wallet.busd %}
+        <p>Binance USD Coin: {{wallet.busd}}</p>
+        {% endif %}
+        {% if wallet.usdt %}
+        <p>Tether USD: {{wallet.usdt}}</p>
+        {% endif %}
+      {% endfor %}
     {% else %}
       <p>There are no wallets.</p>
       {% if request.user == user %}

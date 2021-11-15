@@ -17,4 +17,5 @@ urlpatterns = [
     path('profile/<username>/', views.userProfile, name='user-profile'),
     path('payment/', views.payment, name='payment'),
     path('add-wallet/', views.addUserWallet, name='add-wallet'),
+    path('edit-wallet/', views.editUserWallet, name='edit-wallet'),
 ]

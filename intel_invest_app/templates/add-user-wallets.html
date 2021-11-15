@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div style="margin-top: 50px; height: 100vh;" class="container">
     <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input class="btn btn-secondary btn-sm" style="float: right; background-color: orange; border: 0" type="submit" value="Add User Wallets">
 </form>
 </div>
+{% include 'footer.html' %}
 {% endblock %}

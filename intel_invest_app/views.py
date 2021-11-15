@@ -120,13 +120,13 @@ def rules(request):
 def userProfile(request, username):
     user = get_object_or_404(User, username=username)
     package_invested = Packages.objects.filter(investors=user)
-    wallets = UserWallet.objects.filter(user=user)[:1]
+    wallets = user.userwallet_set.filter(user=user)[:1]
     total_investment_price = 0
     for package in package_invested:
         total_investment_price += package.package_price
 
     if request.user == user.is_superuser or request.user :
-        context = {'user':user, 'package_invested':package_invested, 'total_investment_price':total_investment_price}
+        context = {'user':user, 'package_invested':package_invested, 'total_investment_price':total_investment_price, 'wallets':wallets}
         return render(request, 'user-profile.html', context)
     else:
         return redirect('home')
@@ -176,6 +176,16 @@ def addUserWallet(request):
             form.save()
             return redirect ('user-profile', request.user.username)
 
+    return render(request, 'add-user-wallets.html', {'form':form})
+
+def editUserWallet(request):
+    wallets = UserWallet.objects.filter(user=request.user)
+    form = UserWalletForm
+    if request.method == 'POST':
+        form = UserWalletForm(request.POST, instance=wallets)
+        if form.is_valid():
+            form.save()
+            return redirect ('user-profile', request.user.username)
     return render(request, 'add-user-wallets.html', {'form':form})
 
 
