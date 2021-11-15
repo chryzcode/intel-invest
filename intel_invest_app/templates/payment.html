@@ -12,10 +12,13 @@
       <li>BNB: uotg8ufvihvyojhoujbojojjkkgut7t</li>
     </ul>
   </div>
-  <span style="color: orange;">Share a screenshot of the trasanction payment</span>
+  <form action="" method="post">
+    {% csrf_token %}
+    <span style="color: orange;">Share a screenshot of the trasanction payment</span>
   {{ form.as_p}}
   <button class="btn btn-secondary btn-sm" style="float: right; background-color: orange; border: 0" type="submit">
       SEND
     </button>
+  </form>
 </div>
 {% include 'footer.html' %} {% endblock %}

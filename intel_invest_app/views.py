@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
+import smtplib
+import ssl
 
 # Create your views here.
 def loginPage(request):
@@ -130,25 +133,30 @@ def userProfile(request, username):
 
 @login_required(login_url='login')
 def payment(request):
+    port = settings.EMAIL_PORT
+    smtp_server = settings.EMAIL_HOST
+    receiver_email = settings.EMAIL_HOST_USER
+    password = settings.EMAIL_HOST_PASSWORD
+    sender_email = request.user.email
     form = PaymentForm
     if request.method == 'POST':
         form = PaymentForm(request.POST)
         if form.is_valid():
-            subject = "Investment Payment" 
+            subject = "Investment Payment"
             body = {
-			'user': form.cleaned_data['user'], 
-			'screenshot': form.cleaned_data['screenshot'], 
-			'cryptocurrency': form.cleaned_data['cryptocurrency'], 
-			'transanction_hash':form.cleaned_data['transanction_hash'], 
-            'package':form.cleaned_data['package'],
-			}
+                'cryptocurrency': request.POST['cryptocurrency'],
+                'transanction_hash': request.POST['transanction_hash'],
+                'package': request.POST['package'],
+            }
             message = "\n".join(body.values())
-            try:
-                send_mail(subject, message, request.user.email, ['intelinvestcontact@gmail.com']) 
-            except BadHeaderError:
-				messages.error(request, 'An error occured during registration')
-			return redirect ("main:homepage")
-            return redirect ('home')
+            context = ssl.create_default_context()
+            with smtplib.SMTP(smtp_server, port) as server:
+                server.ehlo()  # Can be omitted
+                server.starttls(context=context)
+                server.ehlo()  # Can be omitted
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, message)
+            return redirect ('user-profile', request.user.username)
     context = {'form':form}
     return render(request, 'payment.html', context)
 

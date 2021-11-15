@@ -51,7 +51,7 @@ class PaymentForm(ModelForm):
     class Meta:
         model = Payment
         fields = "__all__"
-        exclude = ['user']
+        exclude = ['user', 'screenshot']
 
         widgets={
             'transanction_hash':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Payment transanction hash'}),
