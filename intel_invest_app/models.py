@@ -54,5 +54,11 @@ class UserWallet(models.Model):
 
 
 
-# class ConfirmPayment(models.Model):
+class ConfirmPayment(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    reciever = models.EmailField(max_length=250)
+    body = models.TextField(null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.user  + ' ' + str('payment to') + ' ' + self.reciever
