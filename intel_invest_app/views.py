@@ -120,6 +120,7 @@ def rules(request):
 def userProfile(request, username):
     user = get_object_or_404(User, username=username)
     package_invested = Packages.objects.filter(investors=user)
+    wallets = UserWallet.objects.filter(user=user)[:1]
     total_investment_price = 0
     for package in package_invested:
         total_investment_price += package.package_price
@@ -163,6 +164,10 @@ def payment(request):
 @login_required(login_url='login')
 def addUserWallet(request):
     form = UserWalletForm
+    wallets = UserWallet.objects.filter(user=request.user)
+    if wallets:
+        return redirect('user-profile', request.user.username)
+    
     if request.method == 'POST':
         form = UserWalletForm(request.POST)
         if form.is_valid():
@@ -170,6 +175,7 @@ def addUserWallet(request):
             form.user = request.user                                                
             form.save()
             return redirect ('user-profile', request.user.username)
+
     return render(request, 'add-user-wallets.html', {'form':form})
 
 

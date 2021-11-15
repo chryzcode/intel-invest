@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<div style="margin-top: 50px; height: 80vh" class="container">
+<div style="margin-top: 50px; height: 100vh" class="container">
   <h2 style="text-align: center; color: orange">{{user.full_name}}</h2>
   <p style="text-align: right">Total Investment: ${{total_investment_price}}</p>
   <div>
@@ -7,8 +7,50 @@
     <p>{{user.username}}</p>
   </div>
   {% if request.user == user %}
-  <p><a href="{% url 'add-wallet' %}">add wallet</a></p>
+  {% if wallets %}
+  <p style="text-align: center">
+    <a style="color: orange; font-size: 19px" href="{% url 'add-wallet' %}">Edit Wallet</a>
+  </p>
+  {% else %}
+   <p style="text-align: center">
+    <a style="color: orange; font-size: 19px" href="{% url 'add-wallet' %}">Add Wallet</a>
+  </p>
   {% endif %}
+  {% endif %}
+
+<button style="background-color: orange; border: 0;" class="btn btn-secondary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+   My Wallet Addresses
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    {% if wallets %}
+      {% if wallets.bitcoin %}
+      <p>Bitcoin: {{wallets.bitcoin}}</p>
+      {% endif %}
+      {% if wallets.ethereum %}
+      <p>Ethereum: {{wallets.ethereum}}</p>
+      {% endif %}
+      {% if wallets.litecoin %}
+      <p>Litecoin: {{wallets.litecoin}}</p>
+      {% endif %}
+      {% if wallets.bnb %}
+      <p>Binance Coin: {{wallets.bnb}}</p>
+      {% endif %}
+      {% if wallets.busd %}
+      <p>Binance USD Coin: {{wallets.busd}}</p>
+      {% endif %}
+      {% if wallets.usdt %}
+      <p>Tether USD: {{wallets.usdt}}</p>
+      {% endif %}
+    {% else %}
+      <p>There are no wallets.</p>
+      {% if request.user == user %}
+      <p><a href="{% url 'add-wallet' %}">Add Wallet Address</a></p>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
 
   <h4 style="text-align: center; color: orange">My Investments</h4>
 
