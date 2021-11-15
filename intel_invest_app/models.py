@@ -29,7 +29,7 @@ class Cryptocurrency(models.Model):
 
 class Payment(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    screenshot = models.ImageField(upload_to='screenshot/')
+    screenshot = models.ImageField(upload_to='screenshot/user-payment/')
     cryptocurrency = models.CharField(max_length=200)
     transanction_hash = models.CharField(max_length=300)
     package = models.CharField(max_length=250)
@@ -56,9 +56,11 @@ class UserWallet(models.Model):
 
 class ConfirmPayment(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    reciever = models.EmailField(max_length=250)
+    reciever_email = models.EmailField(max_length=250)
+    reciever_account = models.CharField(max_length=350)
     body = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
+    screenshot = models.ImageField(upload_to='screenshot/confirm-payment/')
 
     def __str__(self):
         return self.user  + ' ' + str('payment to') + ' ' + self.reciever

@@ -55,6 +55,7 @@ class PaymentForm(ModelForm):
 
         widgets={
             'transanction_hash':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Payment transanction hash'}),
+            'screenshot': forms.ImageField(attrs={'class':'form-control', 'placeholder':'Payment screenshot'}),
             'cryptocurrency':forms.Select(choices= Cryptocurrency.objects.all().values_list('name', 'name'), attrs={'class':'form-control'}),
             'package':forms.Select(choices= Packages.objects.all().values_list('package_name', 'package_name'), attrs={'class':'form-control'}),
     }
@@ -82,3 +83,20 @@ class UserWalletForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(UserWalletForm, self).__init__(*args, **kwargs)
+
+
+class ConfirmPaymentForm(ModelForm):
+    class Meta:
+        model = ConfirmPayment
+        fields = "__all__"
+        exlude = ['user']
+
+        widgets={
+            'reciever_email':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Reciever Email'}),
+            'reciever_account':forms.Select(choices= User.objects.all().values_list('email', 'email'), attrs={'class':'form-control'}),
+            'screenshot': forms.ImageField(attrs={'class':'form-control', 'placeholder':'Confirmed Payment screenshot'}),
+            'body':forms.Textarea(attrs={'class':'form-control', 'placeholder':'Put in a message'}),
+    }
+
+    def __init__(self, *args, **kwargs):
+        super(PaymentForm, self).__init__(*args, **kwargs)
