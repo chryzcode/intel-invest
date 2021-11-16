@@ -64,6 +64,7 @@ class ConfirmPayment(models.Model):
     body = models.TextField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     screenshot = models.ImageField(upload_to='screenshot/confirm-payment/')
+    package = models.CharField(max_length=250, default='None')
 
     def __str__(self):
         return self.user  + ' ' + str('payment to') + ' ' + self.reciever

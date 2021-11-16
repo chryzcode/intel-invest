@@ -88,13 +88,14 @@ class ConfirmPaymentForm(ModelForm):
     class Meta:
         model = ConfirmPayment
         fields = "__all__"
-        exlude = ['user']
+        exclude = ['user']
 
         widgets={
             'reciever_email':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Reciever Email'}),
             'reciever_account':forms.Select(choices= User.objects.all().values_list('email', 'email'), attrs={'class':'form-control'}),
+            'pacakage': forms.Select(choices= Packages.objects.all().values_list('package_name', 'package_name'), attrs={'class':'form-control'}),
             'body':forms.Textarea(attrs={'class':'form-control', 'placeholder':'Put in a message'}),
     }
 
     def __init__(self, *args, **kwargs):
-        super(PaymentForm, self).__init__(*args, **kwargs)
+        super(ConfirmPaymentForm, self).__init__(*args, **kwargs)

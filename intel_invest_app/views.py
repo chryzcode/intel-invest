@@ -180,22 +180,26 @@ def editUserWallet(request):
 
 def confirmedPayment(request):
     sender_email = request.user.email
-    if request.user.is_superuser:
-        form = ConfirmPaymentForm
-        if request.method == 'POST':
-            form = ConfirmPaymentForm(request.POST)
-            if form.is_valid():
-                form.save()
+    form = ConfirmPaymentForm
+    if request.method == 'POST':
+        form = ConfirmPaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
             email_subject = f'Confirmed Investment Payment {form.cleaned_data["email"]}'
             email_message = {
             'reciever_email':form.cleaned_data["reciever_email"],
             'reciever_account':form.cleaned_data["reciever_account"],
+            'pacakage':form.cleaned_data["pacakage"],
             'body':form.cleaned_data["body"],
             'screenshot':form.cleaned_data["screenshot"],
             }
-            send_mail(email_subject, email_message, sender_email, settings.COMPANY_EMAIL)  
-            time_starting = ConfirmPayment.time_created
-            withdrawal_time = (time_starting +timedelta(days=30)).isoformat()  
-        return render(request, 'confirm-payment.html')
-    return redirect('home')
+            send_mail(email_subject, email_message, sender_email, settings.COMPANY_EMAIL)
+            reciever_account = form.cleaned_data["reciever_account"]
+            an_investor = User.objects.get(user=reciever_account)
+            package = Packages.objects.get(pk=form.cleaned_data["pacakage"])
+            pacakage.investors.add(an_investor)
+            return redirect('home')  
+    context = {'form':form}
+    return render(request, 'confirm-payment.html', context)
+
 
