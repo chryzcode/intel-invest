@@ -12,6 +12,9 @@ class User(AbstractUser):
     
     REQUIRED_FIELDS = ['username']
 
+    def __str__(self):
+        return self.email + ' ' + str(self.full_name)
+
 class Packages(models.Model):
     package_name = models.CharField(max_length=250)
     package_price = models.IntegerField()

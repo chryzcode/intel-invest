@@ -180,6 +180,7 @@ def editUserWallet(request):
 
 def ConfirmPayment(request):
     sender_email = request.user.email
+    time_starting = ConfirmPayment.time_created
     if request.user.is_superuser:
         form = ConfirmPaymentForm
         if request.method == 'POST':
