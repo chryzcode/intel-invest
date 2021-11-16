@@ -7,8 +7,8 @@ from .models import *
 from django.shortcuts import get_object_or_404
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
-import smtplib
-import ssl
+from datetime import date, timedelta
+
 
 # Create your views here.
 def loginPage(request):
@@ -178,9 +178,8 @@ def editUserWallet(request):
             return redirect ('user-profile', request.user.username)
     return render(request, 'add-user-wallets.html', {'form':form})
 
-def ConfirmPayment(request):
+def confirmedPayment(request):
     sender_email = request.user.email
-    time_starting = ConfirmPayment.time_created
     if request.user.is_superuser:
         form = ConfirmPaymentForm
         if request.method == 'POST':
@@ -194,7 +193,9 @@ def ConfirmPayment(request):
             'body':form.cleaned_data["body"],
             'screenshot':form.cleaned_data["screenshot"],
             }
-            send_mail(email_subject, email_message, sender_email, settings.COMPANY_EMAIL)   
+            send_mail(email_subject, email_message, sender_email, settings.COMPANY_EMAIL)  
+            time_starting = ConfirmPayment.time_created
+            withdrawal_time = (time_starting +timedelta(days=30)).isoformat()  
         return render(request, 'confirm-payment.html')
     return redirect('home')
 
