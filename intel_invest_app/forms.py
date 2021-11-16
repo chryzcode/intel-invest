@@ -55,7 +55,7 @@ class PaymentForm(ModelForm):
 
         widgets={
             'transanction_hash':forms.TextInput(attrs={'class':'form-control', 'placeholder':'Payment transanction hash'}),
-            'screenshot': forms.ImageField(attrs={'class':'form-control', 'placeholder':'Payment screenshot'}),
+            'screenshot': forms.ImageField(),
             'cryptocurrency':forms.Select(choices= Cryptocurrency.objects.all().values_list('name', 'name'), attrs={'class':'form-control'}),
             'package':forms.Select(choices= Packages.objects.all().values_list('package_name', 'package_name'), attrs={'class':'form-control'}),
     }
@@ -94,7 +94,7 @@ class ConfirmPaymentForm(ModelForm):
         widgets={
             'reciever_email':forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Reciever Email'}),
             'reciever_account':forms.Select(choices= User.objects.all().values_list('email', 'email'), attrs={'class':'form-control'}),
-            'screenshot': forms.ImageField(attrs={'class':'form-control', 'placeholder':'Confirmed Payment screenshot'}),
+            'screenshot': forms.ImageField(),
             'body':forms.Textarea(attrs={'class':'form-control', 'placeholder':'Put in a message'}),
     }
 
